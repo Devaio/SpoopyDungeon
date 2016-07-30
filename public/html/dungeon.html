@@ -1,0 +1,139 @@
+<div class="container">
+    <h1 class="text-center">Spoopy Dungeon III</h1>
+
+    <!-- Create Player Form -->
+    <form ng-if="!dCtrl.currentPlayer" ng-submit="dCtrl.createPlayer()">
+        <input ng-model="dCtrl.newPlayer.name" type="text" class="form-control" placeholder="Name">
+        <!--<select class="form-control" ng-model="dCtrl.newPlayer.class">
+                    <option disabled selected value="">Choose a Class</option>
+                    <option value="Archer">Archer</option>
+                    <option value="PoopSmith">PoopSmith</option>
+                    <option value="Paladin">Paladin</option>
+                    <option value="Grunt">Grunt</option>
+                    <option value="Trogladyte">Trogladyte</option>
+                </select>-->
+        <input class="btn btn-success" type="submit" value="Venture Forth!">
+    </form>
+
+    <div class="row">
+
+        <!--Player Info-->
+        <div ng-if="dCtrl.currentPlayer" id="playerInfo" class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <span class="pull-right">{{dCtrl.currentPlayer.name}}</span>
+                </div>
+                <!--<div class="col-xs-12">
+                            <span class="pull-right">{{dCtrl.currentPlayer.class}}</span>
+                        </div>-->
+                <div class="col-xs-12">
+                    <span class="pull-right">Level {{dCtrl.currentPlayer.level}}</span>
+                </div>
+                <div class="col-xs-12">
+                    <span class="pull-right">Health: {{dCtrl.currentPlayer.hp}} / {{dCtrl.currentPlayer.maxhp}}</span>
+                </div>
+                <div class="col-xs-12">
+                    <span class="pull-right">Average DPS: {{(dCtrl.currentPlayer.dps * 1000).toFixed(2)}}</span>
+                </div>
+                <div class="col-xs-12">
+                    <span class="pull-right">Total AC: {{dCtrl.currentPlayer.ac}}</span>
+                </div>
+                <div class="col-xs-12">
+                    <span class="pull-right">Experience: {{dCtrl.currentPlayer.exp}}</span>
+                </div>
+                <div class="col-xs-12">
+                    <br>
+                </div>
+
+                <div class="col-xs-6">
+                    <row>
+                        <div class="col-xs-12">
+                            <span class="pull-left">Inventory:</span>
+                        </div>
+
+                        <div class="col-xs-12">
+                            <span class="pull-left">
+                                        <ul>
+                                            <li ng-repeat="(item, num) in dCtrl.currentPlayer.inv track by $index">
+                                                {{item}} x{{num}}
+                                            </li>
+                                        </ul>
+                                    </span>
+                        </div>
+                    </row>
+                </div>
+
+                <div class="col-xs-6">
+                    <row>
+                        <div class="col-xs-12">
+                            <span class="pull-right">Equipped Items:</span>
+                        </div>
+
+                        <div class="col-xs-12">
+                            <span class="pull-right">
+                                        <ul>
+                                            <li ng-repeat="(slot, item) in dCtrl.currentPlayer.equipment track by $index">
+                                                <!-- {{slot}}: {{item.name}} -->
+                                                <div ng-if="item.type=='Armor'">{{slot}}: {{item.name}} - {{item.armorClass}} AC</div>
+                                                <div ng-if="item.type=='Weapon'">{{slot}}: {{item.name}} - {{item.damage}} / {{item.speed}}</div>
+                                            </li>
+                                        </ul>
+                                    </span>
+                        </div>
+                    </row>
+                </div>
+                <!-- for(item in dCtrl.currentPlayer.inv) -->
+                <!-- { -->
+                <!--    console.log(item + ": " + dCtrl.currentPlayer.inv[item]); -->
+                <!-- } -->
+            </div>
+        </div>
+
+        <!-- The Room -->
+        <div ng-if="dCtrl.currentRoom" class="col-xs-12">
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="text-center">
+                                {{dCtrl.currentRoom.description}}
+                            </h3>
+                </div>
+                <!--Items-->
+                <div class="col-xs-12">
+                    <h4> You could win : </h4>
+                    <ul>
+                        <li ng-repeat="item in dCtrl.currentRoom.items track by $index">
+                            <div ng-if="item.type=='Consumable'">{{item.name}} - {{item.type}}</div>
+                            <div ng-if="item.type=='Armor'">{{item.name}} - {{item.armorClass}} AC</div>
+                            <div ng-if="item.type=='Weapon'">{{item.name}} - {{((item.damage / item.speed)*1000).toFixed(2)}} DPS</div>
+                        </li>
+                    </ul>
+                </div>
+                <!--Monster-->
+                <div class="col-xs-12">
+                    <h2>{{dCtrl.currentRoom.monster.type}}</h2>
+                    <h3>{{dCtrl.currentRoom.monster.hp}} / {{dCtrl.currentRoom.monster.maxhp}}</h3>
+                    <h3 ng-if="dCtrl.currentPlayer.hp <= 0"><font color='red'>You died!</font></h3>
+                    <!--The double colon is for One-Time Data Binding!!  This means the value in the DOM is placed ONCE and will never be updated -->
+                    <input ng-if="dCtrl.currentPlayer.hp <= 0" class="btn btn-success" type="submit" value="Retry!" onclick="dCtrl.createPlayer()">
+                    <input ng-if="dCtrl.currentPlayer.hp <= 0" class="btn btn-info" type="submit" value="View Past Heroes!" ng-click="dCtrl.showHeroes = !dCtrl.showHeroes">
+
+                    <div ng-if="dCtrl.showHeroes && dCtrl.currentPlayer.hp <= 0" class="col-xs-12">
+                        <h4>Past heroes: </h4>
+                        <ul>
+                            <li ng-repeat="hero in dCtrl.players">
+                                {{hero.name}}: Level {{hero.level}}
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

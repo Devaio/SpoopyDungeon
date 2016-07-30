@@ -1,0 +1,58 @@
+<html ng-app="SpoopyDungeon">
+
+<head>
+    <title>Crawlin thru them dungeons</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/rpg-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-route.js"></script>
+    <!--<script data-main="/scripts/main.js" src="/scripts/require.js"></script>-->
+    <script src="/scripts/modules/spoopyDungeon.js"></script>
+    <script src="/scripts/controllers/dungeonController.js"></script>
+    <script src="/scripts/factories/dungeonFactory.js"></script>
+
+</head>
+
+<body ng-cloak>
+    <div class="container-fluid">
+
+        <ng-view></ng-view>
+
+        <nav id="bottom-nav">
+            <div class="row">
+                <div class="col-xs-3">
+                    <a ng-href="#/dungeon">
+                        <div class="nav-btn">
+                            <i class="ra ra-crossed-swords"></i> Dungeon
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-3">
+                    <a ng-href="#/store">
+                        <div class="nav-btn">
+                            <i class="ra ra-gold-bar"></i> Store
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-3">
+                    <a ng-href="#/ancestry">
+                        <div class="nav-btn">
+                            <i class="ra ra-double-team"></i> Ancestry
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-3">
+                    <a ng-href="#/settings">
+                        <div class="nav-btn">
+                            <i class="ra ra-cog"></i> Settings
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+</body>
+
+</html>
