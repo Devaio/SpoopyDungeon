@@ -1,3 +1,4 @@
+'use strict'
 class CRUD {
     constructor(model) {
         // console.log('beep boop', model)

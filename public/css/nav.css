@@ -1,0 +1,23 @@
+.nav-btn{
+    text-align: center;
+    font-size:40px;    
+}
+.nav-btn .ra{
+    color:black;
+}
+.nav-btn:hover .ra{
+    color:grey;
+}
+#bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+}
+
+.unstyled-link{
+    text-decoration: none;
+}
+.unstyled-link:hover{
+    text-decoration: none;
+}
