@@ -15,7 +15,7 @@ userSchema.pre('save', function(next){
     }
 	// Store access to "this", which represents the current user document
 	var user = this;
-	user.password = passwords.encrypt(user.password);
+	user.password = passwords.encrypt(user.password, user.username);
 	return next();
 	
 });

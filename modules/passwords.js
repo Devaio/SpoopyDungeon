@@ -1,11 +1,11 @@
 var crypto = require('crypto');
 
 module.exports = {
-    encrypt: function (password) {
-        return crypto.createHash('sha512').update(password).digest('hex');
+    encrypt: function (password, unique) {
+        return crypto.createHash('sha512').update(password + unique).digest('hex');
     },
-    compare: function (password, userPassword, cb) {
-        if (this.encrypt(password) === userPassword) {
+    compare: function (password, unique, userPassword, cb) {
+        if (this.encrypt(password, unique) === userPassword) {
             return cb(true);
         } else {
             return cb(false);

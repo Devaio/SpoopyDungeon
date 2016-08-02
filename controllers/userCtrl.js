@@ -3,18 +3,13 @@ var User = require('../models/users.js');
 var CRUD = require('./crud');
 
 class UserCtrl extends CRUD{
-    constructor(model){
-        super(model);
+    
+    static find(req, res){
+        super.find(User, req, res);
     }
-    // find(req, res){
-    //     super.find(req, res);
-    // }
-    // upsert(req, res){
-    //     super.upsert(req, res);
-    // }
+    static upsert(req, res){
+        super.upsert(User, req, res);
+    }
 
 }
-module.exports = new UserCtrl(User);
-
-// var stuff = new UserCtrl(User);
-// stuff.stupid();
+module.exports = UserCtrl;

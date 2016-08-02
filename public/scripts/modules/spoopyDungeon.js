@@ -6,7 +6,7 @@ function spoopyConfig($routeProvider){
     $routeProvider
         .when('/', {
             templateUrl : '/html/home.html',
-            // controller  : 'HomeController as hCtrl'
+            controller  : 'HomeController as hCtrl'
         })
         .when('/dungeon', {
             templateUrl : '/html/dungeon.html',
