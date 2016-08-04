@@ -294,4 +294,18 @@ function dungeonController(DungeonFactory, $interval) {
         return roman;
     }
 
+    dCtrl.upgradeHealth = function () {
+        console.log("Health upgraded!");
+
+        if(dCtrl.currentPlayer.inv['Gold'] >= 1)
+        {
+            dCtrl.currentPlayer.inv['Gold'] -= 1;
+            dCtrl.currentPlayer.maxhp += 10;
+        }
+        else
+        {
+            console.log('Not enough gold!');
+        }
+    }
+
 }

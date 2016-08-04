@@ -1,1 +1,33 @@
-Store
+<div class="container">
+    <h1 class="text-center">Store</h1>
+
+    <!-- Only display gold and upgrades if there is a current player instantiated -->
+    <div ng-if="dCtrl.currentPlayer">
+
+        <h3 class="text-center">
+            Gold: {{dCtrl.currentPlayer.inv['Gold']}}
+            <span ng-if="!dCtrl.currentPlayer.inv.Gold">0</span>
+
+        </h3>
+
+        <row>
+            <div class="col-xs-12 bottom-padding">Temporary upgrades:</div>
+        </row>
+
+        <row>
+            <div class="col-xs-6">
+                <button type="button" ng-click="dCtrl.upgradeHealth()">Upgrade Health</button>
+            </div>
+            <div class="col-xs-6">
+                <span class="pull-right">Health: {{dCtrl.currentPlayer.hp}} / {{dCtrl.currentPlayer.maxhp}}</span>
+            </div>
+            <div class="col-xs-12">
+                <br>
+            </div>
+        </row>
+
+        <row>
+            <div class="col-xs-12 bottom-padding">Permanent upgrades:</div>
+        </row>
+    </div>
+</div>

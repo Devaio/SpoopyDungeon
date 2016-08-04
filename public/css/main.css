@@ -2,3 +2,7 @@ body {
     /*bottom nav offset*/
     padding-bottom:60px;
 }
+
+.bottom-padding {
+    padding-bottom:20px;
+}
