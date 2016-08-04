@@ -10,19 +10,19 @@ function spoopyConfig($routeProvider){
         })
         .when('/dungeon', {
             templateUrl : '/html/dungeon.html',
-            controller : 'DungeonController as dCtrl'
+            //controller : 'DungeonController as dCtrl'
         })
         .when('/store', {
             templateUrl : '/html/store.html',
-            controller : 'DungeonController as dCtrl'
+            // controller : 'DungeonController as dCtrl'
         })
         .when('/ancestry', {
             templateUrl : '/html/ancestry.html',
-            controller : 'DungeonController as dCtrl'
+            // controller : 'DungeonController as dCtrl'
         })
         .when('/settings', {
             templateUrl : '/html/settings.html',
-            controller : 'DungeonController as dCtrl'
+            // controller : 'DungeonController as dCtrl'
         });
 }
 

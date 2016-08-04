@@ -115,7 +115,11 @@
                     <h3>{{dCtrl.currentRoom.monster.hp}} / {{dCtrl.currentRoom.monster.maxhp}}</h3>
                     <h3 ng-if="dCtrl.currentPlayer.hp <= 0"><font color='red'>You died!</font></h3>
                     <!--The double colon is for One-Time Data Binding!!  This means the value in the DOM is placed ONCE and will never be updated -->
+                    
+                    <!-- Retry button -->
                     <input ng-if="dCtrl.currentPlayer.hp <= 0" class="btn btn-success" type="submit" value="Retry!" onclick="dCtrl.createPlayer()">
+    
+                    <!-- Past heroes -->        
                     <input ng-if="dCtrl.currentPlayer.hp <= 0" class="btn btn-info" type="submit" value="View Past Heroes!" ng-click="dCtrl.showHeroes = !dCtrl.showHeroes">
 
                     <div ng-if="dCtrl.showHeroes && dCtrl.currentPlayer.hp <= 0" class="col-xs-12">
