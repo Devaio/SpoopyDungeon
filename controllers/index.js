@@ -8,6 +8,7 @@ var router = require('express').Router()
 // Login
 router.post('/auth/login', authCtrl.login)
 
+
 // User Routes
 router.get('/api/users', userCtrl.find);
 router.get('/api/users/:id', userCtrl.find);
