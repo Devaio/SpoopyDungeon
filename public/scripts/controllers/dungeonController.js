@@ -297,9 +297,9 @@ function dungeonController(DungeonFactory, $interval) {
     dCtrl.upgradeHealth = function () {
         console.log("Health upgraded!");
 
-        if(dCtrl.currentPlayer.inv['Gold'] >= 1)
+        if(currentPlayer.inv.Gold >= 1)
         {
-            dCtrl.currentPlayer.inv['Gold'] -= 1;
+            dCtrl.currentPlayer.inv.Gold -= 1;
             dCtrl.currentPlayer.maxhp += 10;
         }
         else
