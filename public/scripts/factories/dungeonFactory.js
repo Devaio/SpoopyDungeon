@@ -153,6 +153,11 @@ function dungeonFactory($http) {
         'Troll',
         'Zombie',
         'Porkyman',
+        'Jethro',
+        'Jethro\'s Brother Jethro',
+        'Garcifer',
+        'The Ghost of Gene Wilder',
+        'The Ghost of Harambe',
     ]
 
     var roomDescriptions = [
