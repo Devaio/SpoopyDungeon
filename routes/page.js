@@ -5,7 +5,8 @@ var assets = {
     css: [
         '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css',
         '//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css',
-        '/css/styles.css'
+        '/css/main.css',
+        '/css/nav.css'
     ],
     js: [
         '//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js',
@@ -19,15 +20,14 @@ var assets = {
 
 assets.dungeon = {
     css: [
-        '/css/portal.css',
         '/css/rpg-awesome.min.css',
         '//cdn.jsdelivr.net/github-markdown-css/2.4.0/github-markdown.css'
     ],
     js: [
-        '/js/controller.portal.js',
-        '/js/controller.profile.js',
-        '/js/controller.resources.js',
-        '/js/controller.assignments.js'
+        '/scripts/modules/spoopyDungeon.js',
+        '/scripts/controllers/dungeonController.js',
+        '/scripts/controllers/homeController.js',
+        '/scripts/factories/dungeonFactory.js',
     ]
 };
 
@@ -46,7 +46,6 @@ module.exports = (app) => {
         static: express.static('public'),
         partials: (req, res) => {
             let filepath = req.path.slice(6).slice(0,-5);
-
             fs.exists(`${app.get('views')}/partials/${filepath}.ejs`, (fileExists) => {
                 if( fileExists ) {
                     res.render(`partials/${filepath}.ejs`, { session: req.session });
@@ -55,13 +54,13 @@ module.exports = (app) => {
                 }
             });
         },
-        root: (req, res) => {
-            if( req.session.profile ) {
-                res.redirect('/home');
-            } else {
-                res.render('auth');
-            }
-        },
+        // root: (req, res) => {
+        //     if( req.session.profile ) {
+        //         res.redirect('/home');
+        //     } else {
+        //         res.render('page');
+        //     }
+        // },
         // Main Page
         home: (req, res) => {
             res.render('page', {
