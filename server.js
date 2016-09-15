@@ -1,30 +1,44 @@
-// Requires \\
-var express = require('express');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
+require('colors') // awesome colors in your console logs!
 
-// Connect to DB
-mongoose.connect('mongodb://localhost/spoopydungeon');
+var config = require('./package'),
+    express = require('express'), // our framework!
+    bodyParser = require('body-parser'), // used for POST routes to obtain the POST payload as a property on `req`
+    path = require('path'), // used to resolve paths across OSes
+    logger = require('morgan')('dev'), // log the routes being accessed by the frontend
+    routes = require('./routes'),
+    cors = require('cors')(),
+    sessions = require('client-sessions')(config.session),
+    app = express(), // initialize express
+    mongooseConnection = `mongodb://${config.mongo.host}/${config.mongo.db}`,
+    port = process.env.PORT||80; // server port
 
-// Create Express App Object \\
-var app = express();
-
-// Application Configuration \\
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/public'));
-
-// Routes \\
-app.get('/', function(req, res){
-  res.sendFile('/html/index.html', {root : './public'});
+require('mongoose').connect(mongooseConnection, ( error ) => {
+    if( error ) {
+        console.error('ERROR starting mongoose!', error);
+        process.exit(128);
+    } else {
+        console.info('Mongoose connected:'.yellow, mongooseConnection.toString().bold.magenta);
+    }
 });
 
-var Routes = require('./controllers');
-app.use(Routes)
+app.locals.github = config.github[process.env.NODE_ENV||"development"];
 
-// Creating Server and Listening for Connections \\
-var port = process.env.PORT || 3000;
-app.listen(port, function(){
-  console.log('Server running on port ' + port);
+// server setup
+app.use(sessions);   // mounting HTTPs session cookies
+app.use(logger);     // mounting dev logging
+app.use(cors);       // enable CORS for requests (do we really need this?)
 
+// enable server-side rendering
+app.set('views', `${__dirname}/views`);
+app.set('view engine', 'ejs');
+
+// mount the body-parsing middleware to parse payload strings into `body` object stored in `req.body`
+app.post('*', bodyParser.json(), bodyParser.urlencoded({ extended:true }));
+
+
+routes(app); // do all the routing stuff in a separate file by passing a reference of the app!
+
+// start the server
+app.listen(port, () => {
+    console.log('students.refactoru.com'.cyan, ':', port.toString().bold);
 });

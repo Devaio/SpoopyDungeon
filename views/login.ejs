@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-xs-12">
+        <h1>Welcome to the Spoopy Dungeon</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Login to continue!</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <form ng-submit="hCtrl.login()">
+            <input ng-model="hCtrl.loginUser.username" type="text" class="form-control" placeholder="Username">
+            <input ng-model="hCtrl.loginUser.password" type="password" class="form-control" placeholder="Password">
+            <input class="btn btn-info pull-right" type="submit">
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Sign up</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <form ng-submit="hCtrl.signup()">
+            <input ng-model="hCtrl.newUser.username" type="text" class="form-control" placeholder="Username">
+            <input ng-model="hCtrl.newUser.password" type="password" class="form-control" placeholder="Password">
+            <input ng-model="hCtrl.newUser.confirm" type="password" class="form-control" placeholder="Confirm Password">            
+            <input class="btn btn-info pull-right" type="submit">
+        </form>
+    </div>
+</div>

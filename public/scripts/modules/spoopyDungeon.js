@@ -25,8 +25,3 @@ function spoopyConfig($routeProvider){
             // controller : 'DungeonController as dCtrl'
         });
 }
-
-// require([
-//     'dungeonController',
-//     'dungeonFactory'
-// ]);

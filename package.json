@@ -12,9 +12,28 @@
   "dependencies": {
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
+    "client-sessions": "^0.7.0",
+    "colors": "^1.1.2",
     "express": "^4.14.0",
+    "cors": "^2.8.0",
+    "ejs": "^2.5.2",
     "jsonwebtoken": "^7.1.7",
     "moment": "^2.14.1",
     "mongoose": "^4.5.7"
+  },
+  "mongo": {
+    "host": "localhost",
+    "db": "spoopydungeon"
+  },
+  "session": {
+    "cookieName": "_ru-session",
+    "secret": "|RU|$+Ud3n+$",
+    "requestKey": "session",
+    "duration": 7776000000,
+    "cookie": {
+      "ephemeral": false,
+      "httpOnly": true,
+      "secure": false
+    }
   }
 }

@@ -1,19 +1,16 @@
 angular.module('SpoopyDungeon')
     .controller('HomeController', [
-        '$http',
-        'authFactory', 
+        '$http', 
         homeController
     ]);
 
-function homeController($http, authFactory) {
+function homeController($http) {
     var hCtrl = this;
 
     hCtrl.login = function () {
         $http.post('/auth/login', hCtrl.loginUser)
             .then(function(responseData){
-                if(responseData.data.token){
-                    authFactory.setToken(responseData.data.token);
-                }
+               
             });
     }
 
