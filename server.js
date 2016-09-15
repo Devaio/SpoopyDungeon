@@ -21,7 +21,7 @@ require('mongoose').connect(mongooseConnection, ( error ) => {
     }
 });
 
-app.locals.github = config.github[process.env.NODE_ENV||"development"];
+// app.locals.github = config.github[process.env.NODE_ENV||"development"];
 
 // server setup
 app.use(sessions);   // mounting HTTPs session cookies

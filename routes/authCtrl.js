@@ -1,4 +1,4 @@
-var userCtrl = require('./user');
+var userCtrl = require('./userCtrl');
 
 module.exports = {
     session: {
@@ -17,11 +17,11 @@ module.exports = {
         //     }
         // },
         login: (req, res) => {
-            if(){
+            // if(){
 
-            } else {
-                res.redirect('/');
-            }
+            // } else {
+            //     res.redirect('/');
+            // }
         },
         logout: (req, res) => {
             req.session.reset();

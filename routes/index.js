@@ -9,7 +9,7 @@ module.exports = (app) => {
     const authCtrl = require('./authCtrl.js');
 
     // Login
-    app.post('/auth/login', authCtrl.login)
+    app.post('/auth/login', authCtrl.session.login)
 
 
     // User Routes
@@ -26,8 +26,8 @@ module.exports = (app) => {
 
 
     app.get('/', Page.root);
-    app.get('/portal', Auth.session.protected, Page.portal);
-    app.get('/portal/admin', Auth.session.admin, Page.admin);
+    app.get('/home', authCtrl.session.protected, Page.home);
+    // app.get('/portal/admin', authCtrl.session.admin, Page.admin);
     //
     // ───────────────────────────────────────────────────────────────────────────
     //
