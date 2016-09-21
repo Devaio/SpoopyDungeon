@@ -25,7 +25,7 @@ module.exports = (app) => {
     app.post('/api/chars/:id', charCtrl.upsert);
 
 
-    app.get('/', Page.home);
+    app.get('/', Page.login);
     app.get('/home', authCtrl.session.protected, Page.home);
     // app.get('/portal/admin', authCtrl.session.admin, Page.admin);
     //

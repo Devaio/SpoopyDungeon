@@ -26,7 +26,7 @@ assets.dungeon = {
     js: [
         '/scripts/modules/spoopyDungeon.js',
         '/scripts/controllers/dungeonController.js',
-        '/scripts/controllers/homeController.js',
+        '/scripts/controllers/loginController.js',
         '/scripts/factories/dungeonFactory.js',
     ]
 };
@@ -62,13 +62,28 @@ module.exports = (app) => {
         //     }
         // },
         // Main Page
+        login: (req, res) => {
+            res.render('page', {
+                head: {
+                    title: 'Spoopy Dungeon | Login',
+                    css: assets.css.concat(assets.dungeon.css),
+                    scripts: assets.js.concat(
+                        // '/scripts/modules/spoopyDungeon.js',
+                        assets.dungeon.js
+                    )
+                },
+                session  : req.session,
+                module   : 'SpoopyDungeon',
+                template : 'login'
+            });
+        },
         home: (req, res) => {
             res.render('page', {
                 head: {
-                    title: 'Spoopy Dungeon | Home',
+                    title: 'Spoopy Dungeon | Login',
                     css: assets.css.concat(assets.dungeon.css),
                     scripts: assets.js.concat(
-                        '/scripts/modules/SpoopyDungeon.js',
+                        // '/scripts/modules/spoopyDungeon.js',
                         assets.dungeon.js
                     )
                 },

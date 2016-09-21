@@ -1,13 +1,16 @@
-
 angular.module('SpoopyDungeon', ['ngRoute'])
     .config(['$routeProvider', spoopyConfig]);
 
 function spoopyConfig($routeProvider){
     $routeProvider
         .when('/', {
-            templateUrl : '/html/home.html',
-            controller  : 'HomeController as hCtrl'
+            // templateUrl : '/html/login.html',
+            // controller  : 'LoginController as lCtrl'
         })
+        // .when('/home', {
+        //     templateUrl : '/html/home.html',
+        //     //controller : 'DungeonController as dCtrl'
+        // })
         .when('/dungeon', {
             templateUrl : '/html/dungeon.html',
             //controller : 'DungeonController as dCtrl'

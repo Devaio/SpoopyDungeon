@@ -15,19 +15,13 @@ var User = require('../models/users'),
 module.exports = {
     session: {
         protected: (req, res, next) => {
-            if (req.session.profile) {
+            if (req.session.uid) {
                 next();
             } else {
                 res.redirect('/');
             }
         },
-        // admin: (req, res, next) => {
-        //     if( req.session.profile && req.session.profile.role === 'admin' ) {
-        //         next();
-        //     } else {
-        //         res.redirect('/');
-        //     }
-        // },
+       
         login: (req, res) => {
             User.findOne({
                 username: req.body.username
