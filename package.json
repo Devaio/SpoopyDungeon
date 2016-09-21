@@ -27,10 +27,10 @@
     "db": "spoopydungeon"
   },
   "session": {
-    "cookieName": "_ru-session",
-    "secret": "|RU|$+Ud3n+$",
+    "cookieName": "_spoop",
+    "secret": "$p00pYDUN|G30N|",
     "requestKey": "session",
-    "duration": 7776000000,
+    "duration": 777600000000000,
     "cookie": {
       "ephemeral": false,
       "httpOnly": true,

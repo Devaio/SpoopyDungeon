@@ -8,7 +8,10 @@ class UserCtrl extends CRUD{
         super.find(User, req, res);
     }
     static upsert(req, res){
-        super.upsert(User, req, res);
+        super.upsert(User, req, res, (err, user)=>{
+            req.session.uid = user._id;
+            res.send(user);
+        });
     }
 
 }
