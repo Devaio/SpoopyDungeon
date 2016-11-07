@@ -26,5 +26,6 @@ app.use(Routes)
 var port = process.env.PORT || 3000;
 app.listen(port, function(){
   console.log('Server running on port ' + port);
+  console.log('I MADE CHANGES TO THIS');
 
 });
