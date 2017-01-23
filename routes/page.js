@@ -45,7 +45,7 @@ module.exports = (app) => {
     return {
         static: express.static('public'),
         partials: (req, res) => {
-            let filepath = req.path.slice(6).slice(0,-5);
+            var filepath = req.path.slice(6).slice(0,-5);
             fs.exists(`${app.get('views')}/partials/${filepath}.ejs`, (fileExists) => {
                 if( fileExists ) {
                     res.render(`partials/${filepath}.ejs`, { session: req.session });
