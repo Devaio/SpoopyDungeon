@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="<%= typeof module !=='undefined'? module:'' %>">
+    <head>
+    <% if(typeof head !=='undefined' ) { %>
+        <title><%= head.title %></title>
+        <link rel="icon" href="/img/favicon.png">
+        <% head.css && head.css.forEach((href)=>{ %>
+        <link rel="stylesheet" href="<%= href %>">
+        <% }); %>
+        <% head.scripts && head.scripts.forEach((src)=>{ %>
+        <script src="<%= src %>"></script>
+        <% }); %>
+    <% } %>
+    </head>
+    <% if(typeof template !=='undefined') { %>
+        <%- include(template) %>
+    <% } %>
+</html>

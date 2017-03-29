@@ -1,4 +1,3 @@
-// Dungeon Controller
 angular.module('SpoopyDungeon')
     .controller('DungeonController', [
         'DungeonFactory',

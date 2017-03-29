@@ -12,9 +12,29 @@
   "dependencies": {
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
+    "client-sessions": "^0.7.0",
+    "colors": "^1.1.2",
+    "cors": "^2.8.1",
+    "ejs": "^2.5.2",
     "express": "^4.14.0",
     "jsonwebtoken": "^7.1.7",
     "moment": "^2.14.1",
-    "mongoose": "^4.5.7"
+    "mongoose": "^4.5.7",
+    "morgan": "^1.7.0"
+  },
+  "mongo": {
+    "host": "localhost",
+    "db": "spoopydungeon"
+  },
+  "session": {
+    "cookieName": "_spoop",
+    "secret": "$p00pYDUN|G30N|",
+    "requestKey": "session",
+    "duration": 777600000000000,
+    "cookie": {
+      "ephemeral": false,
+      "httpOnly": true,
+      "secure": false
+    }
   }
 }
