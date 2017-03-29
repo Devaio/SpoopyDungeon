@@ -13,6 +13,9 @@ module.exports = (app) => {
 
 
     // User Routes
+    app.get('/api/me', (req, res)=>{
+        res.send(req.session)
+    })
     app.get('/api/users', userCtrl.find);
     app.get('/api/users/:id', userCtrl.find);
     app.post('/api/users', userCtrl.upsert);

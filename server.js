@@ -6,7 +6,11 @@ var config = require('./package'),
     path = require('path'), // used to resolve paths across OSes
     logger = require('morgan')('dev'), // log the routes being accessed by the frontend
     routes = require('./routes'),
-    cors = require('cors')(),
+    cors = require('cors')({
+        origin: 'http://10.25.15.28:8100',
+        optionsSuccessStatus: 200,
+        credentials : true
+    }),
     sessions = require('client-sessions')(config.session),
     app = express(), // initialize express
     mongooseConnection = `mongodb://${config.mongo.host}/${config.mongo.db}`,
@@ -26,7 +30,7 @@ require('mongoose').connect(mongooseConnection, ( error ) => {
 // server setup
 app.use(sessions);   // mounting HTTPs session cookies
 app.use(logger);     // mounting dev logging
-app.use(cors);       // enable CORS for requests (do we really need this?)
+app.use(cors);       // enable CORS for requests
 
 // enable server-side rendering
 app.set('views', `${__dirname}/views`);
