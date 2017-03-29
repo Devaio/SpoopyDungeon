@@ -30,7 +30,6 @@
     "cookieName": "_spoop",
     "secret": "$p00pYDUN|G30N|",
     "requestKey": "session",
-    "duration": 777600000000000,
     "cookie": {
       "ephemeral": false,
       "httpOnly": true,

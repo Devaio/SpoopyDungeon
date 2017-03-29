@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Attack",
+        "class": "general",
+        "levelReq": 0,
+        "description": "A basic attack with your weapon",
+        "dmg": 1,
+        "validTargets": [
+            "enemy"
+        ],
+        "effects": [],
+        "cost": {
+            "pool": "mp",
+            "amt": 0
+        },
+        "cooldown": 0,
+        "icon": "ra-sword"
+    }
+]

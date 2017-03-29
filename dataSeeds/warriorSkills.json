@@ -1,0 +1,41 @@
+[
+    {
+        "name": "Bash",
+        "class": "warrior",
+        "levelReq": 2,
+        "description": "A strong attack with your weapon",
+        "dmg": 1.1,
+        "validTargets": [
+            "enemy"
+        ],
+        "effects": [],
+        "cost": {
+            "pool": "mp",
+            "amt": 0
+        },
+        "cooldown": 1,
+        "icon": "ra-battered-axe"
+    },
+    {
+        "name": "Chain Strike",
+        "class": "warrior",
+        "levelReq": 0,
+        "description": "Whip a chain at your enemy",
+        "dmg": 1.14,
+        "validTargets": [
+            "enemy"
+        ],
+        "effects": [
+            {
+                "category": "stun",
+                "rounds": 1
+            }
+        ],
+        "cost": {
+            "pool": "mp",
+            "amt": 7
+        },
+        "cooldown": 3,
+        "icon": "ra-chain"
+    }
+]

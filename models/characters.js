@@ -22,7 +22,9 @@ var characterSchema = mongoose.Schema({
     },
     birthDate: { type : String },
     deathDate: { type : String },
-    user:      { type : mongoose.Schema.ObjectId, ref : 'User' }
+    user:      { type : mongoose.Schema.ObjectId, ref : 'User' },
+    skillPoints : Number,
+    skills : [{type : mongoose.Schema.ObjectId, ref : 'Ability'}]
 
 });
 
