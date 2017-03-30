@@ -7,7 +7,7 @@ var config = require('./package'),
     logger = require('morgan')('dev'), // log the routes being accessed by the frontend
     routes = require('./routes'),
     cors = require('cors')({
-        origin: 'http://10.25.15.28:8100',
+        origin: 'http://10.25.15.30:8100',
         optionsSuccessStatus: 200,
         credentials : true
     }),
