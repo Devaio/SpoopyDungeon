@@ -4,7 +4,7 @@ var moment          = require('moment');
 var characterSchema = mongoose.Schema({
     
     name:             { type: String, },
-    class:         { type: String, },
+    class:            { type: String, },
     maxhp:            { type: Number, },
     hp:               { type: Number, },
     level:            { type: Number, },
