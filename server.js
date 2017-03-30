@@ -9,15 +9,15 @@ var config = require('./package'),
     cors = require('cors')({
         origin: 'http://10.25.15.30:8100',
         optionsSuccessStatus: 200,
-        credentials : true
+        credentials: true
     }),
     sessions = require('client-sessions')(config.session),
     app = express(), // initialize express
     mongooseConnection = `mongodb://${config.mongo.host}/${config.mongo.db}`,
-    port = process.env.PORT||80; // server port
+    port = process.env.PORT || 80; // server port
 
-require('mongoose').connect(mongooseConnection, ( error ) => {
-    if( error ) {
+require('mongoose').connect(mongooseConnection, (error) => {
+    if (error) {
         console.error('ERROR starting mongoose!', error);
         process.exit(128);
     } else {
@@ -37,7 +37,7 @@ app.set('views', `${__dirname}/views`);
 app.set('view engine', 'ejs');
 
 // mount the body-parsing middleware to parse payload strings into `body` object stored in `req.body`
-app.post('*', bodyParser.json(), bodyParser.urlencoded({ extended:true }));
+app.post('*', bodyParser.json(), bodyParser.urlencoded({ extended: true }));
 
 routes(app); // do all the routing stuff in a separate file by passing a reference of the app!
 
