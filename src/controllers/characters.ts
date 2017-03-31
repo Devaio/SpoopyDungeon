@@ -7,8 +7,8 @@ import {MainController} from './main';
 
 class Characters extends MainController {
 
-    constructor (){
-        super(Character);
+    constructor (Model){
+        super(Model);        
     }
 
     public get (req: Request, res: Response, cb?: Function){
@@ -21,7 +21,6 @@ class Characters extends MainController {
     }
 
     public upsert (req: Request, res: Response, cb?: Function){
-
         let body = req.body;
         super.upsert(req, res, body, (data)=>{
             
@@ -32,4 +31,4 @@ class Characters extends MainController {
 
 }
 
-export = new Characters();
+export = new Characters(Character);

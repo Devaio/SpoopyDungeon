@@ -6,22 +6,20 @@ import {MainController} from './main';
 
 
 class Accounts extends MainController {
-
+    
     constructor (){
         super(Account);
     }
 
-    public get (req: Request, res: Response, cb?: Function){
+    public get (req: Request, res: Response, cb?: Function) {        
         super.get(req, res, cb ? cb : ()=>{});
     }
 
     public delete (req: Request, res: Response, cb?: Function){
         super.delete(req, res, cb ? cb : ()=>{});
-        
     }
 
     public upsert (req: Request, res: Response, cb?: Function){
-
         let body = req.body;
         super.upsert(req, res, body);
 

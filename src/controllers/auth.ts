@@ -15,7 +15,6 @@ var errors = {
 }
 
 class Auth {
-
     constructor (){
     }
 

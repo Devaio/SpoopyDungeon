@@ -19,12 +19,12 @@ var port = process.env.PORT || 80;
 import { ViewRoutes } from './routes/views';
 import { ApiRoutes } from './routes/api';
 
-
 if (typeof (global.process.env.NODE_ENV) === 'undefined') {
     if (fs.existsSync('./env/development.env')) {
         env('./env/development.env');
     }
 }
+
 mongoose.connect(global.process.env.DB_URI, (err) => {
     console.log('CONNECTING TO DB', err);
 })
