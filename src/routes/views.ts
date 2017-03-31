@@ -1,0 +1,26 @@
+import { NextFunction, Request, Response, Router } from "express";
+import { BaseRoute } from "./route";
+import Middleware = require('../modules/middleware');
+
+export class ViewRoutes extends BaseRoute {
+    public static create(router: Router) {
+        //log
+        console.log("[ViewRoutes::create] Creating view routes.");
+
+        let RouteContainer = new ViewRoutes();
+
+        // router.get('/*',Middleware.setLocals, RouteContainer.wildCard)
+
+
+    }
+    constructor() {
+        super();
+    }
+    
+    public wildCard(req: Request, res: Response){
+        super.render(req, res, 'index')
+    }
+}
+
+
+
