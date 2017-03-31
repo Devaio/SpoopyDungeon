@@ -41,6 +41,7 @@ interface AbilitySub extends Types.Subdocument{
     cost?: Cost,
     cooldown?: number,
     icon?: string,
+    learned?: boolean
 }
 
 var AbilitySubSchema: Schema = new Schema({
@@ -62,7 +63,8 @@ var AbilitySubSchema: Schema = new Schema({
         amt: {type : Number, default : 0}
     },
     cooldown: {type : Number, default : 0}, // (number of rounds)
-    icon: String // (class names)
+    icon: String, // (class names)
+    learned : {type : Boolean, default : false}
 })
 
 var CharacterSchema: Schema = new Schema({

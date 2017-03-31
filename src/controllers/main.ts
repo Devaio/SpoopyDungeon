@@ -39,7 +39,7 @@ class FunctionUtil
     }
   }
 
-export class MainController extends FunctionUtil {
+export class MainController {
 
     model: any;
 
@@ -102,7 +102,7 @@ export class MainController extends FunctionUtil {
     public delete (req: Request, res:Response, cb?:Function) {
 
         if(req.params.id){
-            this.model.findOneAndUpdate({_id : req.params.id}, {deleted : true}, (err, data)=>{
+            this.model.remove({_id : req.params.id}, (err, data)=>{
                 if(err){
                     res.send(err);
                 }

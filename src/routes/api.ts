@@ -7,9 +7,8 @@ import Accounts = require('../controllers/accounts')
 
 export class ApiRoutes extends BaseRoute {
     public static create(router: Router) {
-        //log
-        console.log("[ApiRoutes::create] Creating api routes.");
 
+        console.log("[ApiRoutes::create] Creating api routes.");
 
         router.post('/auth/login', Auth.login)
 
@@ -26,6 +25,8 @@ export class ApiRoutes extends BaseRoute {
         router.get('/api/chars/:id', Characters.get);
         router.post('/api/chars', Characters.upsert);
         router.post('/api/chars/:id', Characters.upsert);
+        router.delete('/api/chars/:id', Characters.delete);
+        
 
     }
     constructor() {
