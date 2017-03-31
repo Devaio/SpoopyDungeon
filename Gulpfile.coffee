@@ -50,5 +50,5 @@ gulp.task 'build', ->
 gulp.task 'default', ['scripts:server', 'scripts:client', 'css'], ->
 	runSequence 'nodemon', () ->
 		gulp.watch 'public/css/src/**/*.styl', ['css']
-		gulp.watch 'public/js/src/**/*.coffee', ['scripts:client']
+		# gulp.watch 'public/js/src/**/*.coffee', ['scripts:client']
 		gulp.watch 'src/**/*.ts', ['scripts:server']
