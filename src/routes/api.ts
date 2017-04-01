@@ -22,6 +22,7 @@ export class ApiRoutes extends BaseRoute {
 
         // Char Routes
         router.get('/api/chars', Characters.get);
+        router.get('/api/chars/user/:uid', Characters.getByUser);
         router.get('/api/chars/:id', Characters.get);
         router.post('/api/chars', Characters.upsert);
         router.post('/api/chars/:id', Characters.upsert);

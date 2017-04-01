@@ -9,9 +9,9 @@ import cookieParser = require('cookie-parser');
 import cors = require('cors');
 
 var corsMiddleware = cors({
-        origin: 'http://10.25.15.35:8100',
+        origin: '*',
         optionsSuccessStatus: 200,
-        credentials: true
+        // credentials: true
     })
 var port = process.env.PORT || 80;
 

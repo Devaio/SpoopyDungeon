@@ -19,7 +19,7 @@
     {
         "name": "Chain Strike",
         "class": "warrior",
-        "levelReq": 0,
+        "levelReq": 4,
         "description": "Whip a chain at your enemy",
         "dmg": 1.14,
         "validTargets": [

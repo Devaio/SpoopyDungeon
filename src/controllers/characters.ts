@@ -17,6 +17,16 @@ class Characters extends MainController {
         super.get(req, res, cb ? cb : ()=>{});
     }
 
+    public getByUser (req:Request, res:Response) {
+        console.log('GET BY USER', req.params.uid)
+        Character.find({user : req.params.uid}).sort('-birthDate').limit(1).exec((err, characters)=>{
+            if(err){
+                return res.status(500).send({err : err});
+            }
+            res.send(characters[0])
+        })
+    }
+
     public delete (req: Request, res: Response, cb?: Function){
         super.delete(req, res, cb ? cb : ()=>{});
         
@@ -31,11 +41,9 @@ class Characters extends MainController {
             
             switch(body.class){
                 case 'mage' : 
-                    console.log('mage')
                     body.abilities = body.abilities.concat(MageSkills);
                     break;
                 case 'warrior' :
-                    console.log('WARRIOR')
                     body.abilities = body.abilities.concat(WarriorSkills);
                     break;
                 default : 

@@ -14,6 +14,7 @@
             "amt": 0
         },
         "cooldown": 0,
-        "icon": "ra-sword"
+        "icon": "ra-sword",
+        "learned" : "true"
     }
 ]
