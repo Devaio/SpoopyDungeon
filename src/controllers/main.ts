@@ -76,7 +76,7 @@ export class MainController {
             let query = {_id : req.params.id};
             this.model.update(query, data, (err, data)=>{
                 if(err){
-                    res.sendStatus(500).send(err)
+                    return res.sendStatus(500).send(err)
                 }
                 else{
                     res.send(data);
@@ -88,7 +88,7 @@ export class MainController {
             let newModelInstance = new this.model(data);
             newModelInstance.save((err, doc)=>{
                 if(err){
-                    res.sendStatus(500).send(err);
+                    return res.sendStatus(500).send(err);
                 }
                 else{
                     res.send(doc)
@@ -104,7 +104,7 @@ export class MainController {
         if(req.params.id){
             this.model.remove({_id : req.params.id}, (err, data)=>{
                 if(err){
-                    res.sendStatus(500).send(err);
+                    return res.sendStatus(500).send(err);
                 }
                 else{
                     res.send(data);
@@ -113,7 +113,7 @@ export class MainController {
             })
         }
         else{
-            res.sendStatus(500).send({error : "Please provide more info"});
+            return res.sendStatus(500).send({error : "Please provide more info"});
         }
 
     }
