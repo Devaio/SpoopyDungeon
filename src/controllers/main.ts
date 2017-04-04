@@ -1,3 +1,4 @@
+import { log } from 'util';
 import helpers = require('../modules/helpers');
 import { NextFunction, Request, Response } from "express";
 
@@ -76,7 +77,7 @@ export class MainController {
             let query = {_id : req.params.id};
             this.model.update(query, data, (err, data)=>{
                 if(err){
-                    return res.sendStatus(500).send(err)
+                    res.sendStatus(500).send(err)
                 }
                 else{
                     res.send(data);
@@ -85,14 +86,23 @@ export class MainController {
             })
         }
         else{
+            console.log('new Thing!')
             let newModelInstance = new this.model(data);
             newModelInstance.save((err, doc)=>{
+                console.log('Saved it!')
+                
                 if(err){
-                    return res.sendStatus(500).send(err);
+                console.log('Something bad')
+                    
+                    res.sendStatus(500).send(err);
                 }
                 else{
+                console.log('Something good')
+                    
                     res.send(doc)
                 }
+                console.log('Callback?')
+                
                 cb ? cb(data) : null;
             })
         }
@@ -104,7 +114,7 @@ export class MainController {
         if(req.params.id){
             this.model.remove({_id : req.params.id}, (err, data)=>{
                 if(err){
-                    return res.sendStatus(500).send(err);
+                    res.sendStatus(500).send(err);
                 }
                 else{
                     res.send(data);
@@ -113,7 +123,7 @@ export class MainController {
             })
         }
         else{
-            return res.sendStatus(500).send({error : "Please provide more info"});
+            res.sendStatus(500).send({error : "Please provide more info"});
         }
 
     }
