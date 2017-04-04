@@ -45,6 +45,9 @@ class Accounts extends MainController {
 
         let acc = new Account(user);
         acc.save((err, doc)=>{
+            if(err){
+                return res.sendStatus(500).send(err)
+            }
            req.session.uid = doc._id
            res.send(doc);
         });
